@@ -1,0 +1,202 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel=StyleSheet href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript" language="JavaScript">
+  <!--
+  function popCode(url) {
+    window.open(url, "Code", 
+          "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+  //-->
+  </script>
+</head>
+
+<body bgcolor="white">
+<table summary="Information on file" width="100%">
+ <tr class="title-row">
+ <td><table summary="layout" width="100%"><tr>
+   <td class="big-title-font" colspan="2">README.rdoc</td>
+   <td align="right"><table summary="layout" cellspacing="0" cellpadding="2">
+         <tr>
+           <td  class="small-title-font">Path:</td>
+           <td class="small-title-font">README.rdoc</td>
+         </tr>
+         <tr>
+           <td class="small-title-font">Modified:</td>
+           <td class="small-title-font">Tue Oct 22 09:18:01 CDT 2002</td>
+         </tr>
+        </table>
+    </td></tr></table></td>
+  </tr>
+</table>
+  <!-- banner header -->
+
+
+
+<div class="description"><h1>RJudy</h1>
+<p>
+RJudy is a Ruby extension module that provides an interface to the <a
+href="../classes/Judy.html">Judy</a> arrays library. <a
+href="../classes/Judy.html">Judy</a>'s home page is at <a
+href="http://www.sourcejudy.com">www.sourcejudy.com</a>.
+</p>
+<p>
+<a href="../classes/Judy.html">Judy</a> was originally implemented at
+Hewlett-Packard, and was subsequently open-sourced in June 2002 (with an
+LGPL license). Doug Baskins, the author of the <a
+href="../classes/Judy.html">Judy</a> algorithm, has written a nice summary
+(see <a
+href="http://www.sourcejudy.com/downloads/10minutes.htm">www.sourcejudy.com/downloads/10minutes.htm</a>)
+of what makes <a href="../classes/Judy.html">Judy</a> arrays so fast, and
+why you might want to use them.
+</p>
+<h2>Build and Installation Instructions</h2>
+<p>
+Before you can build, install and use this extension module you'll need to
+first obtain and install the <a href="../classes/Judy.html">Judy</a> header
+files and library. The source tarball for the latest version of <a
+href="../classes/Judy.html">Judy</a> can be found at its SourceForge
+project page (<a
+href="http://sourceforge.net/projects/judy">sourceforge.net/projects/judy</a>).
+If you get lucky, you may also be able to find precompiled binaries for
+your platform.
+</p>
+<p>
+Once you've built and installed <a href="../classes/Judy.html">Judy</a>
+itself, you should be ready to build and install this extension module.
+From the top-level directory, first configure the build by typing:
+</p>
+<pre>
+    ruby install.rb config
+</pre>
+<p>
+Next, start the build process by typing:
+</p>
+<pre>
+    ruby install.rb setup
+</pre>
+<p>
+Finally, install it by typing:
+</p>
+<pre>
+    ruby install.rb install
+</pre>
+<p>
+Note that on Unix systems, you'll probably need to be logged in as
+&quot;root&quot; for that last step.
+</p>
+<h2>Summary</h2>
+<p>
+Once you've built and installed RJudy, you can use any of its bundled
+classes (Judy1, JudyL or JudySL) by simply <tt>require</tt>-ing the
+&quot;judy&quot; feature, i.e.
+</p>
+<pre>
+    require 'judy'
+
+    judy1Array  = Judy::Judy1.new
+    judyLArray  = Judy::JudyL.new
+    judySLArray = Judy::JudySLArray.new
+</pre>
+<p>
+For a listing of the instance methods for each of these classes, refer to
+their respective documentation pages. For more background information about
+<a href="../classes/Judy.html">Judy</a> arrays, refer to the <a
+href="../classes/Judy.html">Judy</a> home page.
+</p>
+<h2>Test Suite</h2>
+<p>
+Test cases for each of the <a href="../classes/Judy.html">Judy</a> classes
+are provided in the &quot;tests&quot; subdirectory. These tests use the
+Test::Unit framework, available for download from <a
+href="http://testunit.talbott.ws">testunit.talbott.ws</a>.
+</p>
+<p>
+To run one of the individual tests, type something like:
+</p>
+<pre>
+    ruby TC_JudyL.rb
+</pre>
+<p>
+To run all of the tests, type:
+</p>
+<pre>
+    ruby TS_All.rb
+</pre>
+<p>
+You shouldn't get any failures; if you do, please contact <a
+href="mailto:lyle@users.sourceforge.net">lyle@users.sourceforge.net</a> and
+let him know about it!
+</p>
+<h2>Credits</h2>
+<ul>
+<li><a href="../classes/Judy.html">Judy</a> was invented by Doug Baskins (<a
+href="mailto:doug@sourcejudy.com">doug@sourcejudy.com</a>) and implemented
+by Hewlett-Packard.
+
+</li>
+<li>SWIG (<a href="http://www.swig.org">www.swig.org</a>) was used to generate
+much of the wrapper code used for RJudy.
+
+</li>
+</ul>
+<h2>License</h2>
+<p>
+RJudy is Copyright (c) 2002 by Lyle Johnson, and is provided under the GNU
+Lesser General Public License (<a
+href="http://www.gnu.org/licenses/lgpl.html">www.gnu.org/licenses/lgpl.html</a>).
+See the LICENSE file in the top-level directory of the RJudy source
+distribution for more details.
+</p>
+<h2>Change History</h2>
+<h3>Changes Since Version 0.1</h3>
+<ul>
+<li>The previous implementations of Judy1, JudyL, JudySL and JudyHash used the
+calloc() function for memory allocation instead of Ruby's ALLOC(). As a
+result, the normal Ruby garbage collection heuristics would not come into
+play and no garbage collection would take place during insertions into a
+JudyHash instance. This has been corrected; thanks to Mauricio Fernandez
+for pointing out this flaw.
+
+</li>
+<li>The previous implementation of JudyHash did not make a duplicate of new
+string keys inserted into the hash, it just stored a reference to the input
+string key. This was inconsistent with Ruby's built-in Hash which does make
+a duplicate of new string keys. This has been corrected; thanks to Mauricio
+Fernandez for pointing out this flaw.
+
+</li>
+<li>The previous version of the words.rb example wasn't quite fair because it
+failed to run the garbage collector between tests. As a result, the tests
+run first will have an advantage over tests run later, when the garbage
+collector may get called more frequently. I've rewritten this program to
+instead use the benchmark library's <em>bmbm</em> method, which should run
+the garbage collector in between tests and hopefully even up the playing
+field. Thanks to Mauricio Fernandez for pointing out this flaw in the
+tests.
+
+</li>
+<li>Per Doug Baskins' advice, replaced all calls to <a
+href="../classes/Judy.html">Judy</a> library functions (such as JudyLGet()
+and JudyLNext()) with calls to their macro equivalents (e.g. JLG() and
+JLN()). This should improve overall performance, especially for hash
+lookups.
+
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

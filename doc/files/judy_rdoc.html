@@ -1,0 +1,503 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html><head>
+  <title>File: judy.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel=StyleSheet href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript" language="JavaScript">
+  <!--
+  function popCode(url) {
+    window.open(url, "Code", 
+          "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+  //-->
+  </script>
+</head>
+
+<body bgcolor="white">
+<table summary="Information on file" width="100%">
+ <tr class="title-row">
+ <td><table summary="layout" width="100%"><tr>
+   <td class="big-title-font" colspan="2">judy.rdoc</td>
+   <td align="right"><table summary="layout" cellspacing="0" cellpadding="2">
+         <tr>
+           <td  class="small-title-font">Path:</td>
+           <td class="small-title-font">judy.rdoc</td>
+         </tr>
+         <tr>
+           <td class="small-title-font">Modified:</td>
+           <td class="small-title-font">Fri Sep 06 08:58:52 CDT 2002</td>
+         </tr>
+        </table>
+    </td></tr></table></td>
+  </tr>
+</table>
+  <!-- banner header -->
+
+
+
+<div class="description"><p>
+module Judy
+</p>
+<pre>
+  # A Judy1 array is the equivalent of a bit array or bit map. A bit is
+  # addressed by an index (or key). The array may be sparse, and the index
+  # may be any word-sized value. If an index is present, it represents a
+  # set bit (a bit set represents an index present). If an index is absent,
+  # it represents an unset bit (a bit unset represents an absent index).
+
+  class Judy1
+    # Construct an empty Judy1 array.
+    def initialize; end
+</pre>
+<pre>
+    # Set _index_'s bit in the array. Returns +true+ if _index_'s bit was
+    # previously unset (successful), or +false+ if the bit was already set
+    # (unsuccessful).
+    def set(index); end
+
+    # Unset _index_'s bit in the array; that is, remove _index_ from
+    # the array. Returns +true+ if _index_'s bit was previously set (successful),
+    # or +false+ if the bit was already unset (unsuccessful).
+    def unset(index); end
+</pre>
+<pre>
+    # Returns +true+ if _index_'s bit is set, otherwise +false+.
+    def test(index); end
+
+    # The zero-argument form of #count returns the total number of indices
+    # present in the array. The two-argument form of #count returns the number
+    # of indices present between &lt;em&gt;index1&lt;/em&gt; and &lt;em&gt;index2&lt;/em&gt;, inclusive.
+    # Returns zero if there are no indices present between &lt;em&gt;index1&lt;/em&gt;
+    # and &lt;em&gt;index2&lt;/em&gt;.
+    def count(index1, index2); end
+</pre>
+<pre>
+    # Locate the &lt;em&gt;n&lt;/em&gt;th index that is present in the array (where _n_=1
+    # returns the first index present). To refer to the last index in a
+    # fully populated array (i.e. all indices present, which is rare) use
+    # _n_=0. Returns +nil+ if at least _n_ indices aren't present.
+    def by_count(n); end
+
+    # Free the entire array (and return the number of bytes freed).
+    def free_array; end
+</pre>
+<pre>
+    # Return the number of bytes of memory currently in use by the array.
+    # This is a very fast routine and may be used after a call to #set or
+    # #unset with little performance impact.
+    def mem_used; end
+
+    # Search (inclusive) for the first index present that is equal to or
+    # greater than _index_. Start with _index_=0 to find the first index
+    # in the array. Returns +nil+ if no indices greater than or equal to _index_
+    # are found.
+    def first_index(index=0); end
+</pre>
+<pre>
+    # Search (exclusive) for the next index present that is greater than
+    # _index_. Returns +nil+ if no indices greater than _index_ are found.
+    def next_index(index); end
+
+    # Search (inclusive) for the last index present that is equal to or less
+    # than _index_. Start with _index_=-1 to find the last index in the array.
+    # Returns +nil+ if no indices less than or equal to _index_
+    # are found.
+    def last_index(index=-1); end
+</pre>
+<pre>
+    # Search (exclusive) for the previous index present that is less than
+    # _index_.
+    # Returns +nil+ if no indices less than to _index_ are found.
+    def prev_index(index); end
+
+    # Search (inclusive) for the first absent index that is equal to or
+    # greater than _index_. Start with _index_=0 to find the first index
+    # absent from the array.
+    # Returns +nil+ if no empty indices greater than or equal to
+    # _index_ are found.
+    def first_empty_index(index=0); end
+</pre>
+<pre>
+    # Search (exclusive) for the next absent index that is greater than _index_.
+    # Returns +nil+ if no empty indices greater than _index_ are found.
+    def next_empty_index(index); end
+
+    # Search (inclusive) for the last absent index that is equal to or less
+    # than _index_. Start with _index_=-1 to find the last index absent from
+    # the array.
+    # Returns +nil+ if no empty indices less than or equal to
+    # _index_ are found.
+    def last_empty_index(index=-1); end
+</pre>
+<pre>
+    # Search (exclusive) for the previous absent index that is less than _index_.
+    # Returns +nil+ if no empty indices less than _index_ are found.
+    def prev_empty_index(index); end
+
+    # Calls block once for each index present in the array, passing that
+    # index as a parameter.
+    def each_index; end
+</pre>
+<pre>
+    # Calls block once for each index that is absent from the array,
+    # passing that index as a parameter.
+    def each_empty_index; end
+
+    # Return +true+ if the array is full, +false+ otherwise.
+    def full? ; end
+</pre>
+<pre>
+    # Convert to an array
+    def to_a; end
+
+    # Convert to a string
+    def to_s; end
+  end
+</pre>
+<pre>
+  # A JudyL array is the equivalent of an array of word-sized values. A value
+  # is addressed by an index (key). The array may be sparse and the index may
+  # be any word-sized number. Memory to support the array is allocated as
+  # index/value pairs are inserted, and released as index/value pairs are
+  # deleted.
+
+  class JudyL
+    # Construct an empty JudyL array.
+    def initialize; end
+</pre>
+<pre>
+    # Insert an _index_ and _value_ into the array, and return a reference
+    # to _value_. If _index_ is already present, replace the old value with _value_.
+    def []=(index, value); end
+
+    # Delete _index_ from the array and return the value that was stored
+    # at that index (or +nil+ if none).
+    def delete_at(index); end
+</pre>
+<pre>
+    # Return the value stored at _index_ (or +nil+ if the index
+    # is not present).
+    def [](index); end
+
+    # The zero-argument form of #count returns the total number of indices
+    # present in the array. The two-argument form of #count returns the number
+    # of indices present between &lt;em&gt;index1&lt;/em&gt; and &lt;em&gt;index2&lt;/em&gt;, inclusive.
+    # Returns zero if there are no indices present between &lt;em&gt;index1&lt;/em&gt;
+    # and &lt;em&gt;index2&lt;/em&gt;.
+    def count(index1, index2); end
+</pre>
+<pre>
+    # Return the &lt;em&gt;n&lt;/em&gt;th index that is present in the array (where _n_=1
+    # returns the first index present), or +nil+ if there are not at least
+    # _n_ indices present in the array.
+    def by_count(n); end
+
+    # Free the entire array and return the number of bytes freed.
+    def free_array; end
+</pre>
+<pre>
+    # Return the number of bytes of memory currently used by the array.
+    # This is a very fast routine and may be used after inserting or removing
+    # indices with little performance impact.
+    def mem_used; end
+
+    # Search (inclusive) for the first index present that is equal to or
+    # greater than _index_. Start with _index_=0 to find the first index
+    # in the array.
+    # Returns +nil+ if no indices greater than or equal to _index_
+    # are found.
+    def first_index(index=0); end
+</pre>
+<pre>
+    # Search (exclusive) for the next index present that is greater than
+    # _index_.
+    # Returns +nil+ if no indices greater than _index_ are found.
+    def next_index(index); end
+
+    # Search (inclusive) for the last index present that is equal to or less
+    # than _index_. Start with _index_=-1 to find the last index in the array.
+    # Returns +nil+ if no indices less than or equal to _index_
+    # are found.
+    def last_index(index=-1); end
+</pre>
+<pre>
+    # Search (exclusive) for the previous index present that is less than
+    # _index_.
+    # Returns +nil+ if no indices less than _index_ are found.
+    def prev_index(index); end
+
+    # Search (inclusive) for the first absent index that is equal to or
+    # greater than _index_. Start with _index_=0 to find the first index
+    # absent from the array.
+    # Returns +nil+ if no empty indices greater than or equal to
+    # _index_ are found.
+    def first_empty_index(index=0); end
+</pre>
+<pre>
+    # Search (exclusive) for the next absent index that is greater than _index_.
+    # Returns +nil+ if no empty indices greater than _index_ are found.
+    def next_empty_index(index); end
+
+    # Search (inclusive) for the last absent index that is equal to or less
+    # than _index_. Start with _index_=-1 to find the last index absent from
+    # the array.
+    # Returns +nil+ if no empty indices less than or equal to
+    # _index_ are found.
+    def last_empty_index(index=-1); end
+</pre>
+<pre>
+    # Search (exclusive) for the previous absent index that is less than _index_.
+    # Returns +nil+ if no empty indices less than _index_ are found.
+    def prev_empty_index(index); end
+
+    # Returns the first non-+nil+ element of the array, or +nil+ if empty.
+    def first; end
+</pre>
+<pre>
+    # Returns the last non-+nil+ element of the array, or +nil+ if empty.
+    def last; end
+
+    # Calls block once for each element in the array, passing that
+    # element as a parameter.
+    def each; end
+</pre>
+<pre>
+    # Calls block once for each element in the array, passing that
+    # element's index as a parameter.
+    def each_index; end
+
+    # Calls block once for each empty element in the array, passing that
+    # element's index as a parameter.
+    def each_empty_index; end
+</pre>
+<pre>
+    # Removes all elements from the array.
+    def clear; end
+
+    # Returns +true+ if array contains no elements.
+    def empty? ; end
+</pre>
+<pre>
+    # Returns the number of non-empty elements.
+    def nitems; end
+
+    # Returns +true+ if the given object is present in the array.
+    def include?(obj); end
+</pre>
+<pre>
+    # Return +true+ if the array is full, +false+ otherwise.
+    def full? ; end
+
+    # Converts this JudyL array to an array.
+    def to_a; end
+</pre>
+<pre>
+    # Convert to a string
+    def to_s; end
+  end
+
+  # A JudySL array is the equivalent of a sorted set of strings, each
+  # associated with a value. A value is addressed by a string index (or
+  # key).
+</pre>
+<pre>
+  class JudySL
+    # Construct an empty JudySL array.
+    def initialize; end
+
+    # Insert a string _key_ and _value_ into the array. If _key_ is already
+    # present, replace the old value with _value_.
+    def []=(key, value); end
+</pre>
+<pre>
+    # Delete _key_ from the array and return the value previously stored
+    # for that key (or +nil+ if this key is not present).
+    def delete(key); end
+
+    # Return the value stored for _key_ (or +nil+.if the key
+    # is not present.
+    def [](key); end
+</pre>
+<pre>
+    # Free the entire array and return the number of bytes freed.
+    def free_array; end
+
+    # Search (inclusive) for the first key present that is equal to or
+    # greater than _key_. Start with _key_=&quot;&quot; to find the first key
+    # in the array.
+    # Return +nil+ if no keys greater than or equal to _key_
+    # are found.
+    def first_key(key=&quot;&quot;); end
+</pre>
+<pre>
+    # Search (exclusive) for the next key present that is greater than
+    # _key_.
+    # Return +nil+ if no keys greater than _key_ are found.
+    def next_key(key); end
+
+    # Search (inclusive) for the last key present that is equal to or less
+    # than _key_. There is also a zero-argument form of #last_key which
+    # returns the last key in the array.
+    # Return +nil+ if no keys less than or equal to _key_
+    # are found.
+    def last_key(key=nil); end
+</pre>
+<pre>
+    # Search (exclusive) for the previous key present that is less than
+    # _key_.
+    # Return +nil+ if no keys less than _key_ are found.
+    def prev_key(key); end
+
+    # Return +true+ if the given _key_ is present, otherwise +false+.
+    def has_key?(key); end
+</pre>
+<pre>
+    # Call block once for each key present, passing the key
+    # and value as parameters. Returns a reference to the array.
+    def each; end
+
+    # Call block once for each key present, passing the key
+    # as parameter. Returns a reference to the array.
+    def each_key; end
+</pre>
+<pre>
+    # Alias for JudySL#each.
+    def each_pair; end
+
+    # Call block once for each key, passing the value as parameter.
+    # Returns a reference to the array.
+    def each_value; end
+</pre>
+<pre>
+    # Remove all key-value pairs from the array and return a reference
+    # to the array.
+    def clear; end
+
+    # Return +true+ if array contains no keys, otherwise +false+.
+    def empty? ; end
+</pre>
+<pre>
+    # Returns a new array populated with the keys from this JudySL array.
+    # See also JudySL#values.
+    def keys; end
+
+    # Returns a new array populated with the values from this JudySL array.
+    # See also JudySL#keys.
+    def values; end
+</pre>
+<pre>
+    # Return the number of key-value pairs in the array.
+    def length; end
+
+    # Alias for JudySL#length.
+    def size; end
+</pre>
+<pre>
+    # Converts this JudySL array to a nested array of [_key_, _value_] arrays.
+    def to_a; end
+
+    # Converts this JudySL array to a string by converting it to an array of
+    # [ _key_, _value_ ] pairs and then converting that array to a string using
+    # Array#join with the default separator.
+    def to_s; end
+  end
+</pre>
+<pre>
+  # A JudyHash is intended as a drop-in replacement for Ruby's Hash; that is,
+  # the keys can be of any type (not only integers or strings) and it still
+  # uses the keys' _hash_ method to compute a hash code. This is an implementation
+  # of the ideas set out in the Judy application note &quot;Scalable Hashing&quot;.
+
+  class JudyHash
+    # Construct an empty hash
+    def initialize; end
+</pre>
+<pre>
+    # Insert a _key_ and _value_ into the array. If _key_ is already
+    # present, replace the old value with _value_.
+    def []=(key, value); end
+
+    # Delete _key_ from the array and return the value previously stored
+    # for that key (or +nil+ if this key is not present).
+    def delete(key); end
+</pre>
+<pre>
+    # Return the value stored for _key_ (or +nil+.if the key
+    # is not present.
+    def [](key); end
+
+    # Free the entire array and return the number of bytes freed.
+    def free_array; end
+</pre>
+<pre>
+    # Return +true+ if the given _key_ is present, otherwise +false+.
+    def has_key?(key); end
+
+    # Call block once for each key present, passing the key
+    # and value as parameters. Returns a reference to the array.
+    def each; end
+</pre>
+<pre>
+    # Call block once for each key present, passing the key
+    # as parameter. Returns a reference to the array.
+    def each_key; end
+
+    # Alias for JudyHash#each.
+    def each_pair; end
+</pre>
+<pre>
+    # Call block once for each key, passing the value as parameter.
+    # Returns a reference to the array.
+    def each_value; end
+
+    # Remove all key-value pairs from the array and return a reference
+    # to the array.
+    def clear; end
+</pre>
+<pre>
+    # Return +true+ if array contains no keys, otherwise +false+.
+    def empty? ; end
+
+    # Return a new array populated with the keys from this hash.
+    # See also JudyHash#values.
+    def keys; end
+</pre>
+<pre>
+    # Return a new array populated with the values from this hash.
+    # See also JudyHash#keys.
+    def values; end
+
+    # Return the number of key-value pairs in the array.
+    def length; end
+</pre>
+<pre>
+    # Alias for JudyHash#length.
+    def size; end
+
+    # Convert this hash to a nested array of [_key_, _value_] arrays.
+    def to_a; end
+</pre>
+<pre>
+    # Convert this hash to a string by converting it to an array of
+    # [ _key_, _value_ ] pairs and then converting that array to a string using
+    # Array#join with the default separator.
+    def to_s; end
+  end
+</pre>
+<p>
+end
+</p>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

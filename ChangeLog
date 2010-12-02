@@ -1,0 +1,50 @@
+2002-10-22 09:33  lyle
+
+	* judy.rb: [no log message]
+
+2002-10-22 09:14  lyle
+
+	* Makefile, README.rdoc, judy.rb, judy.rdoc: [no log message]
+
+2002-10-22 09:07  lyle
+
+	* Makefile, README, README.rdoc, judy.rb, judy.rdoc,
+	ext/judy/judy_wrap.c: [no log message]
+
+2002-09-06 10:42  lyle
+
+	* ext/judy/judy_wrap.c, swig-interfaces/JudyHash.i,
+	swig-interfaces/JudySL.i: [no log message]
+
+2002-09-06 10:23  lyle
+
+	* Makefile, ext/judy/JudyHash.c, ext/judy/JudyHash.h,
+	ext/judy/MANIFEST, ext/judy/judy_wrap.c,
+	swig-interfaces/JudyHash.i: [no log message]
+
+2002-09-06 09:00  lyle
+
+	* .cvsignore, ChangeLog: [no log message]
+
+2002-09-06 08:58  lyle
+
+	* .cvsignore, LICENSE, Makefile, README, TODO, install.rb, judy.rb,
+	examples/words.rb, ext/judy/.cvsignore, ext/judy/MANIFEST,
+	ext/judy/extconf.rb, ext/judy/judy_wrap.c, swig-interfaces/Judy1.i,
+	swig-interfaces/JudyHash.i, swig-interfaces/JudyL.i,
+	swig-interfaces/JudySL.i, swig-interfaces/Makefile,
+	swig-interfaces/judy.i, tests/TC_Judy1.rb, tests/TC_JudyHash.rb,
+	tests/TC_JudyL.rb, tests/TC_JudySL.rb, tests/TS_All.rb: Initial
+	import of RJudy sources
+
+2002-09-06 08:58  lyle
+
+	* .cvsignore, LICENSE, Makefile, README, TODO, install.rb, judy.rb,
+	examples/words.rb, ext/judy/.cvsignore, ext/judy/MANIFEST,
+	ext/judy/extconf.rb, ext/judy/judy_wrap.c, swig-interfaces/Judy1.i,
+	swig-interfaces/JudyHash.i, swig-interfaces/JudyL.i,
+	swig-interfaces/JudySL.i, swig-interfaces/Makefile,
+	swig-interfaces/judy.i, tests/TC_Judy1.rb, tests/TC_JudyHash.rb,
+	tests/TC_JudyL.rb, tests/TC_JudySL.rb, tests/TS_All.rb: Initial
+	revision
+

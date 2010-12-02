@@ -1,0 +1,126 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Methods</title>
+<style type="text/css">
+<!--
+  body {
+background-color: #ddddff;
+     font-family: Verdana, Arial, Helvetica, sans-serif; 
+       font-size: 11px; 
+      font-style: normal;
+     line-height: 14px; 
+           color: #000040;
+  }
+div.banner {
+  background: #0000aa;
+  color:      white;
+  padding: 1;
+  margin: 0;
+  font-size: 90%;
+  font-weight: bold;
+  line-height: 1.1;
+  text-align: center;
+  width: 100%;
+}
+
+A.xx { color: white; font-weight: bold; }
+-->
+</style>
+<base target="docwin">
+</head>
+<body>
+<div class="banner"><a href="files/README_rdoc.html" class="xx">Methods</a></div>
+<a href="classes/Judy/JudyL.html#M000004">[] (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000071">[] (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000032">[] (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudyHash.html#M000030">[]= (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudyL.html#M000002">[]= (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000069">[]= (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyL.html#M000006">by_count (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000052">by_count (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudySL.html#M000082">clear (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyL.html#M000022">clear (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000039">clear (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudyL.html#M000005">count (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000051">count (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyHash.html#M000031">delete (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudySL.html#M000070">delete (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyL.html#M000003">delete_at (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000078">each (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000035">each (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudyL.html#M000019">each (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000064">each_empty_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000021">each_empty_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudyL.html#M000020">each_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000063">each_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyHash.html#M000036">each_key (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudySL.html#M000079">each_key (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudySL.html#M000080">each_pair (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000037">each_pair (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudyHash.html#M000038">each_value (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudySL.html#M000081">each_value (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyL.html#M000023">empty? (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000083">empty? (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000040">empty? (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudyL.html#M000017">first (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudyL.html#M000013">first_empty_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000059">first_empty_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/Judy1.html#M000055">first_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000009">first_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000073">first_key (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyL.html#M000007">free_array (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000072">free_array (Judy::JudySL)</a><br />
+<a href="classes/Judy/Judy1.html#M000053">free_array (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyHash.html#M000033">free_array (Judy::JudyHash)</a><br />
+<a href="classes/Judy/Judy1.html#M000065">full? (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000026">full? (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000077">has_key? (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000034">has_key? (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudyL.html#M000025">include? (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000084">keys (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000041">keys (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudyL.html#M000018">last (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000061">last_empty_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000015">last_empty_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000057">last_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000011">last_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000075">last_key (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudySL.html#M000086">length (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000043">length (Judy::JudyHash)</a><br />
+<a href="classes/Judy/Judy1.html#M000054">mem_used (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000008">mem_used (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000068">new (Judy::JudySL)</a><br />
+<a href="classes/Judy/Judy1.html#M000047">new (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000001">new (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000029">new (Judy::JudyHash)</a><br />
+<a href="classes/Judy/Judy1.html#M000060">next_empty_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000014">next_empty_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000056">next_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000010">next_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000074">next_key (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyL.html#M000024">nitems (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000062">prev_empty_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000016">prev_empty_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/Judy1.html#M000058">prev_index (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000012">prev_index (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000076">prev_key (Judy::JudySL)</a><br />
+<a href="classes/Judy/Judy1.html#M000048">set (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyHash.html#M000044">size (Judy::JudyHash)</a><br />
+<a href="classes/Judy/JudySL.html#M000087">size (Judy::JudySL)</a><br />
+<a href="classes/Judy/Judy1.html#M000050">test (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyL.html#M000027">to_a (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudySL.html#M000088">to_a (Judy::JudySL)</a><br />
+<a href="classes/Judy/Judy1.html#M000066">to_a (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudyHash.html#M000045">to_a (Judy::JudyHash)</a><br />
+<a href="classes/Judy/Judy1.html#M000067">to_s (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudySL.html#M000089">to_s (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyL.html#M000028">to_s (Judy::JudyL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000046">to_s (Judy::JudyHash)</a><br />
+<a href="classes/Judy/Judy1.html#M000049">unset (Judy::Judy1)</a><br />
+<a href="classes/Judy/JudySL.html#M000085">values (Judy::JudySL)</a><br />
+<a href="classes/Judy/JudyHash.html#M000042">values (Judy::JudyHash)</a><br />
+</body></html>
